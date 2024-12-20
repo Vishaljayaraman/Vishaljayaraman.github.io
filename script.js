@@ -1,9 +1,16 @@
 // 3D Starfield Animation
 const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
+// Set canvas dimensions to match the window
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// Create stars
 let stars = [];
 const numStars = 300;
 
@@ -11,13 +18,14 @@ function createStars() {
     stars = [];
     for (let i = 0; i < numStars; i++) {
         stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
+            x: Math.random() * canvas.width * 2 - canvas.width,
+            y: Math.random() * canvas.height * 2 - canvas.height,
             z: Math.random() * canvas.width
         });
     }
 }
 
+// Draw stars
 function drawStars() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = 'white';
@@ -34,22 +42,18 @@ function drawStars() {
         star.z -= 2;
         if (star.z <= 0) {
             star.z = canvas.width;
+            star.x = Math.random() * canvas.width * 2 - canvas.width;
+            star.y = Math.random() * canvas.height * 2 - canvas.height;
         }
     });
     requestAnimationFrame(drawStars);
 }
 
+// Initialize stars and start the animation
 createStars();
 drawStars();
 
-// Resize canvas on window resize
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    createStars();
-});
-
-// Close navbar on link click
+// Close navbar on link click (for mobile view)
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         const navbarCollapse = document.querySelector('.navbar-collapse');

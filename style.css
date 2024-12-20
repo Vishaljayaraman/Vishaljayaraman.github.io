@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,7 +7,7 @@ body {
     background-color: #000;
 }
 
-/* 3D Starfield Canvas */
+/* Fullscreen Starfield Canvas */
 #starfield {
     position: fixed;
     top: 0;
@@ -16,12 +17,52 @@ body {
     z-index: -1;
 }
 
-/* Glowing Text */
+/* Glowing Text for Headers */
 .glow-text {
     text-shadow: 0 0 20px #4CAF50, 0 0 30px #4CAF50;
 }
 
-/* Navigation Bar */
+/* Navigation Bar Styling */
 .navbar {
     background: rgba(0, 0, 0, 0.8);
+}
+
+/* Navigation Links */
+.navbar-nav .nav-link {
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #4CAF50;
+}
+
+/* Card Styling */
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+}
+
+/* Button Styling */
+.btn-outline-light {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-light:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Footer Styling */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    text-align: center;
 }
