@@ -21,29 +21,7 @@ body {
     text-shadow: 0 0 20px #4CAF50, 0 0 30px #4CAF50;
 }
 
-/* Button Styling */
-.btn-outline-light {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-outline-light:hover {
-    background-color: #4CAF50;
-    color: #fff;
-}
-
 /* Navigation Bar */
 .navbar {
     background: rgba(0, 0, 0, 0.8);
-}
-
-/* Card Styling */
-.project-card {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: none;
-    transition: transform 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
 }
