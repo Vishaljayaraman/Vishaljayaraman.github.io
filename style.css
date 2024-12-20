@@ -27,40 +27,26 @@ body {
 
 /* Glowing Text */
 .glow-text {
-    text-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
+    text-shadow: 0 0 20px #4CAF50, 0 0 30px #4CAF50;
 }
 
-/* Navigation */
-.navbar {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+/* Button Styling */
+#playMusicBtn {
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Project Cards */
-.project-card {
-    background: rgba(255, 255, 255, 0.1);
+#playMusicBtn:hover {
+    background-color: #4CAF50;
     color: #fff;
-    border: none;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
-}
-
-/* Contact Icons */
-.btn-outline-light i {
-    transition: transform 0.3s;
-}
-
-.btn-outline-light:hover i {
-    transform: scale(1.2);
-}
-
-/* Footer */
-footer {
-    background: rgba(0, 0, 0, 0.8);
+/* YouTube Player Styling */
+#player {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    margin-top: 20px;
+    display: none;
 }
 
 /* Keyframes for Twinkling Effect */
