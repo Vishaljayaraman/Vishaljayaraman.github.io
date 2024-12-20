@@ -1,39 +1,50 @@
-let player;
-const videoIds = [
-    'dQw4w9WgXcQ', // Rick Astley - Never Gonna Give You Up
-    '3JZ_D3ELwOQ', // TheFatRat - Unity
-    '2Vv-BfVoq4g', // Ed Sheeran - Perfect
-    'hT_nvWreIhg', // OneRepublic - Counting Stars
-    'ktvTqknDobU'  // Imagine Dragons - Radioactive
-];
+// 3D Starfield Animation
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// Load the YouTube IFrame API and initialize the player
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '315',
-        width: '560',
-        videoId: '', // No video initially loaded
-        playerVars: {
-            'autoplay': 1,
-            'controls': 1
-        },
-        events: {
-            'onReady': onPlayerReady
+let stars = [];
+const numStars = 300;
+
+function createStars() {
+    stars = [];
+    for (let i = 0; i < numStars; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            z: Math.random() * canvas.width
+        });
+    }
+}
+
+function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'white';
+    stars.forEach(star => {
+        const k = 128.0 / star.z;
+        const px = star.x * k + canvas.width / 2;
+        const py = star.y * k + canvas.height / 2;
+
+        if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
+            const size = (1 - star.z / canvas.width) * 2;
+            ctx.fillRect(px, py, size, size);
+        }
+
+        star.z -= 2;
+        if (star.z <= 0) {
+            star.z = canvas.width;
         }
     });
+    requestAnimationFrame(drawStars);
 }
 
-function onPlayerReady(event) {
-    console.log("YouTube Player is ready.");
-}
+createStars();
+drawStars();
 
-// Function to play a random YouTube video
-function playRandomMusic() {
-    const randomIndex = Math.floor(Math.random() * videoIds.length);
-    const randomVideoId = videoIds[randomIndex];
-    player.loadVideoById(randomVideoId);
-    document.getElementById('player').style.display = 'block';
-}
-
-// Event listener for the button
-document.getElementById('playMusicBtn').addEventListener('click', playRandomMusic);
+// Resize canvas on window resize
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    createStars();
+});

@@ -2,12 +2,12 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
-    background-color: #000;
     overflow-x: hidden;
+    background-color: #000;
 }
 
-/* Starry Background */
-.stars, .twinkling {
+/* 3D Starfield Canvas */
+#starfield {
     position: fixed;
     top: 0;
     left: 0;
@@ -16,41 +16,34 @@ body {
     z-index: -1;
 }
 
-.stars {
-    background: url('https://www.transparenttextures.com/patterns/stardust.png');
-}
-
-.twinkling {
-    background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
-    animation: twinkle 10s infinite linear;
-}
-
 /* Glowing Text */
 .glow-text {
     text-shadow: 0 0 20px #4CAF50, 0 0 30px #4CAF50;
 }
 
 /* Button Styling */
-#playMusicBtn {
+.btn-outline-light {
     transition: background-color 0.3s, color 0.3s;
 }
 
-#playMusicBtn:hover {
+.btn-outline-light:hover {
     background-color: #4CAF50;
     color: #fff;
 }
 
-/* YouTube Player Styling */
-#player {
-    width: 100%;
-    max-width: 560px;
-    height: 315px;
-    margin-top: 20px;
-    display: none;
+/* Navigation Bar */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
 }
 
-/* Keyframes for Twinkling Effect */
-@keyframes twinkle {
-    from { background-position: 0 0; }
-    to { background-position: -1000px 1000px; }
+/* Card Styling */
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: none;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
 }
